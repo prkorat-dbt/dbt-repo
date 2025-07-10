@@ -1,0 +1,11 @@
+version: 2
+
+snapshots:
+  - name: scd_raw_customer
+    relation: source ('airbnb', 'customer')
+    config:
+      target_schema: "snapshots"
+      strategy: "check"
+      unique_key: "Customer_ID"
+      check_cols: ["Customer_State", "Customer_name"]
+      invalidate_hard_deletes: True
